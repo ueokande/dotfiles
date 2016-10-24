@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 " use Vim settings, rather than Vi settings
 set nocompatible
 
@@ -33,29 +35,16 @@ endif
 filetype plugin indent on
 
 "---------------------------------------------------------------------------
-" Key bindings
-"
-" CTRL-U in insert mode deletes a lot.
-inoremap <C-U> <C-G>u<C-U>
-
-" remove highlighting of search automatically
-" set hlsearch
-nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return>
-nnoremap / :<C-u>set hlsearch<Return>/
-nnoremap ? :<C-u>set hlsearch<Return>?
-nnoremap * :<C-u>set hlsearch<Return>*
-nnoremap # :<C-u>set hlsearch<Return>#
-
-"---------------------------------------------------------------------------
 " Search settings
 
-" ignore case case during search
 set noignorecase
 set nosmartcase
-" wrap search
 set wrapscan
-" incremental searching
 set incsearch
+set hlsearch
+
+" remove highlighting of search by <Esc><Esc>
+nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return>
 
 "---------------------------------------------------------------------------
 " File settings
@@ -63,37 +52,39 @@ set incsearch
 " set line-break and charset
 set fileformat=unix
 set fileformats=unix
+set fileencoding=utf-8
 set fileencodings=utf-8
-" display contents as UTF-8
 set encoding=utf-8
+set ambiwidth=double
+
 " make a backup before overwriting a file
 set backup
+
 " crypt method as blowfish
 set cryptmethod=blowfish
 
 "---------------------------------------------------------------------------
 " Edit settings
 
-" tab width
+" tab and indent
 set tabstop=8
 set shiftwidth=2
 set softtabstop=2
 set shiftwidth=2
-
+set expandtab
+set autoindent
 set smartindent
 
-" expand or not tab to spaces (expandtab/noexpandtab)
-set expandtab
-" indent or not automatically (autoindent/noautoindent)
-set autoindent
-" backspace behavior in insert mode
-set backspace=indent,eol,start
-" highlight coreesponding to bracket
-set showmatch
+" Deletes a lot in insert mode
+inoremap <C-U> <C-G>u<C-U>
+
+" Search
 " use or not enhanced command-line
-set wildmenu
 " compatible japanese character during insert-mode
 set formatoptions+=mM
+
+" Enable backspace in insert mode
+set backspace=indent,eol,start
 
 "---------------------------------------------------------------------------
 " View and UI settings
@@ -112,13 +103,18 @@ set showcmd
 set history=50
 " set title of terminals
 set title
+" Powerfull menu
+set wildmenu
+" show matched beggining or ending of scope
+set showmatch
+source $VIMRUNTIME/macros/matchit.vim
 
 " Enable syntax highlighting
 syntax on
+
 " Colorscheme
 set background=dark
 colorscheme hybrid
 hi Normal ctermbg=none
 highlight NonText ctermbg=none
-
 
