@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Use fcitx
+# if (hash fcitx 2> /dev/null) then
+#   export GTK_IM_MODULE=fcitx
+#   export QT_IM_MODULE=fcitx
+#   export XMODIFIERS='@im=fcitx'
+#   fcitx
+# fi
+
+exec_if_exists() {
+  (hash $1 2>/dev/null) && "$@"
+}
+
+exec_if_exists nm-applet  --sm-disable &
+exec_if_exists xmodmap .Xmodmap
+exec_if_exists xrdb .Xresources
+exec_if_exists xbindkeys
+exec_if_exists xscreensaver -no-splash &
+
+# exec awesome

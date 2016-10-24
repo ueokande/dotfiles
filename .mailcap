@@ -1,0 +1,5 @@
+application/pdf;        evince '%s'; test=test -n "$DISPLAY"
+application/postscript; evince '%s'; test=test -n "$DISPLAY"
+audio/*;                vlc '%s'
+image/*;                ristretto '%s'
+audio/*;                showaudio %s

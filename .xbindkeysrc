@@ -1,0 +1,13 @@
+# Special keys
+"amixer set Master 5%+"
+  XF86AudioRaiseVolume
+"amixer set Master 5%-"
+  XF86AudioLowerVolume
+"amixer set Master toggle"
+  XF86AudioMute
+"eject -T"
+  XF86Eject
+
+# Lock
+"slimlock"
+   Mod4 + Delete

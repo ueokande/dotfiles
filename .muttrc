@@ -1,0 +1,80 @@
+set ssl_starttls = yes
+set ssl_force_tls = yes
+set ssl_use_sslv3 = yes
+set timeout = 60  #Check for mail every minute
+set mail_check = 5
+
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/certificates
+ 
+set move = no  #Stop asking to "move read messages to mbox"!
+set imap_keepalive = 900
+
+set send_charset="utf-8:iso-2022-jp"
+
+# Sidebar
+set sidebar_width=24
+set sidebar_visible=yes
+set sidebar_delim='|'
+set sidebar_sort=no
+ 
+set imap_check_subscribed
+
+# Unbinds
+bind index \CD refresh
+bind index <Esc>d refresh
+bind index d refresh
+bind index q refresh
+ 
+# Common binds
+bind index,pager gh edit
+
+# Sidebar Navigation
+bind index,pager \CP sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CO sidebar-open
+
+# Pager Binding
+bind index K        previous-entry
+bind index J        next-entry
+bind index gg       first-entry
+bind index G        last-entry
+bind index R        group-reply
+bind index <tab>    sync-mailbox
+bind index <space>  display-message
+bind index Q        quit
+
+bind pager k       previous-line
+bind pager j       next-line
+bind pager gg      top
+bind pager G       bottom
+bind pager R       group-reply
+bind pager <space> exit
+
+# Onother 
+bind index "^" imap-fetch-mail
+macro index,pager y "<enter-command>unset trash\n <delete-message>" "Gmail archive message"
+macro attach s <save-entry><bol>~/Downloads/<end>
+
+# Color
+color attachment brightmagenta default
+color error      brightred    default
+color hdrdefault red          default
+color indicator  brightyellow red
+color markers    brightcyan   default
+color message    brightcyan   default
+color normal     default      default
+color quoted     brightblue   default
+color search     default      green
+color signature  red          default
+color status     black        white
+color tilde      magenta      default
+color tree       magenta      default
+color index      cyan         default ~U
+color index      cyan         default ~N
+color body       blue         default "(ftp|http)://[^ ]+"
+color body       blue         default "[-a-zA-Z0-9_.]+@[-a-zA-Z0-9_.]+"
+
+# formatting
+set index_format="%Z %{%m-%d} %-15.15L %s"

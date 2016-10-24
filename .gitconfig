@@ -1,0 +1,24 @@
+[user]
+	name = Shin'ya Ueoka
+
+[receive]
+	denyDeleteCurrent = 0
+
+[color]
+	ui = true
+
+[alias]
+	tree = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
+
+[commit]
+	verbose = true
+
+[push]
+	default = simple
+
+[merge]
+	tool = vimdiff
+
+[diff]
+	compactionHeuristic = true
+

@@ -1,0 +1,12 @@
+! Caps Lock --> Left Control
+remove Lock = Caps_Lock
+keysym Caps_Lock = Control_L
+add Control = Control_L
+
+! Muhenkan, Henkan_Mode, Hiragana_Katakana --> Space
+keycode 102 = space NoSymbol space
+keycode 100 = space NoSymbol space
+keycode 101 = space NoSymbol space
+
+! Disable underscore in jp106
+keycode 97  = NoSymbol

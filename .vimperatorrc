@@ -1,0 +1,36 @@
+" vim: set ft=vimperator:
+
+" None gui
+set gui=none
+
+" Change Browser Title
+set titlestring='Mozilla Filefox'
+
+"change current tab by h/l
+map h <C-p>
+map l <C-n>
+
+"change width of scroll
+map j 5<C-e>
+map k 5<C-y>
+map J 15<C-e>
+map K 15<C-y>
+
+" color of hint
+hi Hint font-family: monospace; font-size: 14px; font-weight: bold; color: white; padding: 0 4px; margin: -4px 0 0 0; background-color: red; border: 1px red solid; -moz-border-radius: 2px; ButtonShadow; padding 0 1px;
+hi Hint::after content: attr(number);
+hi HintElem background: -moz-linear-gradient(top, #f2ee00, #edcd00);background-color:#edcd00; color: black; /*border: 1px #f7e800 solid; -moz-border-radius: 4px;
+hi HintActive background-color: #3c5068; color: white; /*border: 1px #35475c solid;*/ -moz-border-radius: 4px;
+hi HintImage opacity: .5; 
+
+" Set complete mode
+set complete=slfS
+
+" View Background Image
+:command! backgroundimage :js let (doc = content.document) let (m = doc.defaultView.getComputedStyle(doc.body, '').backgroundImage.match(/url\s*\(\s*['"](.+)['"]\s*\)/)) m ? liberator.open(m[1], liberator.NEW_TAB) : liberator.echoerr('background image not found')
+
+" Hint Characters
+set hintchars=hjklasdfgyuiopqwertnmzxcvb
+
+" Hack: https://github.com/vimperator/vimperator-labs/pull/591#issuecomment-251457297
+js services.services.autoCompleteSearch.class_="@mozilla.org/autocomplete/search;1?name=unifiedcomplete"
