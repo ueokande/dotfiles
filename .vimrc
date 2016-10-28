@@ -47,7 +47,12 @@ set incsearch
 set hlsearch
 
 " remove highlighting of search by <Esc><Esc>
-nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return>
+nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
+nnoremap / :<C-u>set hlsearch<Return>/
+nnoremap ? :<C-u>set hlsearch<Return>?
+nnoremap * :<C-u>set hlsearch<Return>*
+nnoremap # :<C-u>set hlsearch<Return>#
+
 
 "---------------------------------------------------------------------------
 " File settings
