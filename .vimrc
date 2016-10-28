@@ -30,6 +30,9 @@ if has('vim_starting')
   " vim-hybrid -- A dark color scheme for Vim & gVim
   NeoBundle 'w0ng/vim-hybrid'
 
+  " vim-go
+  NeoBundle 'fatih/vim-go'
+
   call neobundle#end()
 endif
 filetype plugin indent on
