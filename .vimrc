@@ -6,36 +6,32 @@ set nocompatible
 "---------------------------------------------------------------------------
 " NeoBundle
 "
-filetype plugin indent off
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#begin(expand('~/.vim/bundle/'))
-  NeoBundleFetch 'Shougo/neobundle.vim'
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
-  " NERD Tree --  A tree explorer plugin for vim.
-  NeoBundle 'scrooloose/nerdtree'
+call dein#begin(expand('~/.vim/dein'))
 
-  " Tabular -- Vim script for text filtering and alignment
-  NeoBundle 'godlygeek/tabular'
+" NERD Tree --  A tree explorer plugin for vim.
+call dein#add('scrooloose/nerdtree')
 
-  " vim-slim -- Slim support for vim
-  NeoBundle 'slim-template/vim-slim'
+" Tabular -- Vim script for text filtering and alignment
+call dein#add('godlygeek/tabular')
 
-  " vim-coffee-script -- CoffeeScript support for vim
-  NeoBundle 'kchmck/vim-coffee-script'
+" vim-slim -- Slim support for vim
+call dein#add('slim-template/vim-slim')
 
-  " lightline.vim -- A light and configurable statusline/tabline for Vim
-  NeoBundle 'itchyny/lightline.vim'
+" vim-coffee-script -- CoffeeScript support for vim
+call dein#add('kchmck/vim-coffee-script')
 
-  " vim-hybrid -- A dark color scheme for Vim & gVim
-  NeoBundle 'w0ng/vim-hybrid'
+" lightline.vim -- A light and configurable statusline/tabline for Vim
+call dein#add('itchyny/lightline.vim')
 
-  " vim-go
-  NeoBundle 'fatih/vim-go'
+" vim-hybrid -- A dark color scheme for Vim & gVim
+call dein#add('w0ng/vim-hybrid')
 
-  call neobundle#end()
-endif
-filetype plugin indent on
+" vim-go -- Go development plugin for Vim
+call dein#add('fatih/vim-go')
+
+call dein#end()
 
 "---------------------------------------------------------------------------
 " Search settings
