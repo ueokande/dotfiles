@@ -87,3 +87,9 @@ if (hash less >/dev/null 2>/dev/null) then
 elif (hash more >/dev/null 2>/dev/null) then
   export PAGER=more
 fi
+
+# Setup cmdo
+if [ -d "$HOME/.cmdo/bin" ]; then
+  export CMDO_HOME="$HOME/.cmdo"
+  export PATH="$HOME/.cmdo/bin:$PATH"
+fi
