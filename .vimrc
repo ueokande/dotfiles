@@ -31,6 +31,9 @@ call dein#add('w0ng/vim-hybrid')
 " vim-go -- Go development plugin for Vim
 call dein#add('fatih/vim-go')
 
+" vim-clang -- Clang completion plugin for vim
+call dein#add('justmao945/vim-clang')
+
 call dein#end()
 
 "---------------------------------------------------------------------------
