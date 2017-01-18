@@ -93,3 +93,21 @@ if [ -d "$HOME/.cmdo/bin" ]; then
   export CMDO_HOME="$HOME/.cmdo"
   export PATH="$HOME/.cmdo/bin:$PATH"
 fi
+
+scp() {
+  (
+    while test $# != 0; do
+      case "$1" in
+        -c|-F|-i|-l|-o|-P|-S) shift  ;;
+        *:*)                  exit 0 ;;
+      esac
+      shift;
+    done
+    exit 1;
+  )
+  if [ $? = 0 ]; then
+    command scp "$@"
+  else
+    echo >&2 "scp: No host name"
+  fi
+}
