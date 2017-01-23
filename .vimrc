@@ -125,3 +125,36 @@ colorscheme hybrid
 hi Normal ctermbg=none
 highlight NonText ctermbg=none
 
+"---------------------------------------------------------------------------
+" Go and vim-go
+
+let g:go_fmt_command = "goimports"
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+
+au FileType go nmap <Leader>1 <Plug>(go-build)
+au FileType go nmap <Leader>2 <Plug>(go-run)
+au FileType go nmap <Leader>3 <Plug>(go-test)
+au FileType go nmap <Leader>e <Plug>(go-rename)
+
+au FileType go setlocal omnifunc=go#complete#Complete
+
+au FileType go set shiftwidth=8
+au FileType go set softtabstop=8
+au FileType go set tabstop=8
+au FileType go set noexpandtab
+
+au FileType go :highlight goErr cterm=bold ctermfg=214
+au FileType go :match goErr /\<err\>/
+
+let g:go_list_type = "quickfix"
+
+filetype plugin indent on
