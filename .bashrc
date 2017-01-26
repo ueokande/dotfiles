@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ $(who am i) =~ \([-a-zA-Z0-9\.]+\)$ ]]; then
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] || [ -n "$SSH_CONNECTION"]; then
   if [[ $UID = 0 ]]; then
     export PS1=$'\[\e[36;1m\]\h\[\e[m\]:\[\e[33;1m\]\w\[\e[31;1m\]#\[\e[m\] '
   else
