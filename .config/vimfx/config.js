@@ -64,3 +64,31 @@ vimfx.addCommand({
   vim.window.FullZoom.reset()
 })
 vimfx.set('custom.mode.normal.zoom_reset', 'zz');
+
+function run_in_new_tab(args, f) {
+  let {vim} = args;
+  commands.tab_new.run(args);
+  vim.window.setTimeout(f);
+}
+
+function new_tab_with_prefix(args, prefix) {
+  run_in_new_tab(args, () => {
+    let {vim} = args;
+    let {gURLBar} = vim.window;
+    commands.focus_location_bar.run(args);
+    gURLBar.value = prefix;
+    gURLBar.onInput(new vim.window.KeyboardEvent('input'));
+  });
+}
+
+vimfx.addCommand({
+  name: 'tabopen',
+  description: 'Open a URL in a new tab',
+  category: 'tabs',
+  order: commands.tab_new.order + 1,
+}, (args) => {
+  let {vim} = args;
+  let {gURLBar} = vim.window;
+  new_tab_with_prefix(args, gURLBar.value);
+});
+vimfx.set('custom.mode.normal.tabopen', 'T');
