@@ -34,6 +34,18 @@ call dein#add('fatih/vim-go')
 " vim-clang -- Clang completion plugin for vim
 call dein#add('justmao945/vim-clang')
 
+" vim-javacomplete2 - Updated javacomplete plugin for vim.
+call dein#add('artur-shaik/vim-javacomplete2')
+
+" vim-javacomplete2 - Updated javacomplete plugin for vim.
+call dein#add('artur-shaik/vim-javacomplete2')
+
+" vim-erlang/vim-erlang-runtime - Erlang indentation and syntax for Vim
+call dein#add('vim-erlang/vim-erlang-runtime')
+
+" vim-erlang/vim-erlang-omnicomplete - Erlang omnicomplete plugin for Vim
+call dein#add('vim-erlang/vim-erlang-omnicomplete')
+
 call dein#end()
 
 "---------------------------------------------------------------------------
@@ -156,5 +168,20 @@ au FileType go :highlight goErr cterm=bold ctermfg=214
 au FileType go :match goErr /\<err\>/
 
 let g:go_list_type = "quickfix"
+
+"---------------------------------------------------------------------------
+" C
+
+au FileType c,cpp set shiftwidth=8
+au FileType c,cpp set softtabstop=8
+au FileType c,cpp set tabstop=8
+au FileType c,cpp set noexpandtab
+
+"---------------------------------------------------------------------------
+" Java
+
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+au FileType java set shiftwidth=4
+au FileType java set softtabstop=4
 
 filetype plugin indent on
