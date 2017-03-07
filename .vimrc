@@ -46,6 +46,9 @@ call dein#add('vim-erlang/vim-erlang-runtime')
 " vim-erlang/vim-erlang-omnicomplete - Erlang omnicomplete plugin for Vim
 call dein#add('vim-erlang/vim-erlang-omnicomplete')
 
+" plasticboy/vim-markdown - Markdown Vim Mode
+call dein#add('plasticboy/vim-markdown')
+
 call dein#end()
 
 "---------------------------------------------------------------------------
@@ -185,3 +188,7 @@ au FileType java set shiftwidth=4
 au FileType java set softtabstop=4
 
 filetype plugin indent on
+
+"---------------------------------------------------------------------------
+" Markdown
+let g:vim_markdown_folding_disabled = 1
